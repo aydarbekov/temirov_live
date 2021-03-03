@@ -25,7 +25,7 @@ SECRET_KEY = 'nw4!_n0w_#nufzzs6(l%4&@h71&p5#qt9gu%#+!=71rsrw!&k2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webapp',
+    'youtube_thumbnail',
 ]
 
 MIDDLEWARE = [

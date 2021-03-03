@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container"></div>
+    <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #000000;">
+            <div class="container-fluid" style="margin: 0">
+                <div>
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'images/logo4.png' %}" alt="" style="max-height: 60px;"/>
+                    </a>
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'images/logo5.png' %}" alt="" style="max-height: 60px; margin-left: -10px;"/>
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbars-host">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Жаңылыктар</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Биз жөнүндө</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Контакт</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Kg</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Ru</a></li>
+                    </ul>
+                    <form class="d-flex" method="get" action="{% url 'index' %}">
+                        <input class="form-control me-2" type="search" placeholder="издөө" aria-label="Search" name="search" value="">
+                        <button class="btn btn-outline-success" type="submit" style="margin-left: 5px">издөө</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <img src="{% static 'images/temir.jpg' %}" alt="" width="100%" height="auto" />
+    </div>
+    <div class="row align-items-lg-center">
+        {% for newsv in news_listv %}
+            <div class="col-md-4 col-10" style="width: 50%; height: auto; margin-left: 3%">
+                <div class="message-box">
+                    <h4>Эң кызыктуу жаңлыктар</h4>
+                    <h2>{{newsv.title}}</h2>
+                    <p>{{newsv.detail}}</p>
+                </div><!-- end messagebox -->
+            </div><!-- end col -->
+
+            <div class="" style="width: 50%">
+                <div class="col-md-8">
+                    <iframe src="{{newsv.link}}" style="width: 170%; height: 400px; margin-left: 20%; margin-top: 20px"></iframe>
+                </div><!-- end media -->
+            </div><!-- end col -->
+        {% endfor %}
+    </div>
+    <hr width="98%" style="border: 2px solid #0056b3">
+    <div id="overviews">
+        <div class="container">
+            <div class="row">
+                {% for new in news %}
+                    <div class="col-lg-4 col-md-6 col-12 flex-md-column">
+                        <div class="list-group-item" style="position: relative;">
+                            <div class="card" style="position: relative">
+                                <iframe src="{{new.link}}"></iframe>
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>{{new.title}}</strong><br><small>{{new.add_time}}&nbsp/&nbsp&nbsp{{new.category}}</small></h5>
+                                    <p class="card-text">{{new.detail}}</p>
+                                    <div class="blog-button">
+                                        <a class="hover-btn-new orange" href="detail/{{new.id}}"><span>кененирээк</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                {% endfor %}
+            </div><!-- end row -->
+        </div><!-- end container -->'
+    </div><!-- end section -->
+    <footer class="footer" style="background-image: url({% static 'images/world-map.png' %}); background-color: #225e7f">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Биз жөнүндө</h3>
+                        </div>
+                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
+                        <div class="footer-right">
+                            <ul class="footer-links-soi">
+                                <li><a href="https://m.facebook.com/temirovlive/?tsid=0.705453887935072&source=result"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://instagram.com/temirovlive?igshid=hd97pl2yhsek"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://twitter.com/vahoel?s=09"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://wa.me/996550142000"><i class="fa fa-whatsapp"></i></a></li>
+                            </ul><!-- end links -->
+                        </div>
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Маалыматтык бурч</h3>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="#">Сайтыбыз</a></li>
+                            <li><a href="#">электрондук дарегибиз</a></li>
+                            <li><a href="#">дарегибиз</a></li>
+                            <li><a href="#">Ватсап номерибиз</a></li>
+                            <li><a href="#">Номерибиз</a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Байланышуу</h3>
+                        </div>
+
+                        <ul class="footer-links">
+                            <li><a href="mailto:#">www.temirovlife.com</a></li>
+                            <li><a href="#">info@yoursite.com</a></li>
+                            <li>Бишкек шаары Исанов көчөсү</li>
+                            <li>+996777777777</li>
+                            <li>+996555555555</li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
+
+    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-center">
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">SmartEDU</a> Design By : <a href="https://html.design/">html design</a></p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up" style="margin-right: 10px"></i></a>
+{% endblock %}

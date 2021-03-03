@@ -1,0 +1,175 @@
+{% load static %}
+{% load youtube_thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <title>{% block title %}Temirov Life{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'images/tlogo.jpg' %}" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+</head>
+<body>
+<header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div>
+                {#                <a class="navbar-brand" href="#">#}
+                {#                    ГЛАВНАЯ#}
+                {#                </a>#}
+                <a class="navbar-brand" href={% url 'index' %}>
+                    <img src="{% static 'images/logo5.png' %}" alt="" style="max-height: 60px; margin-left: -10px;"/>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {#                <ul class="navbar-nav  me-auto ms-4 mb-2 mb-lg-0">#}
+                {#                    <li class="nav-item">#}
+                {#                        <a class="nav-link active" aria-current="page" href="#">Новости</a>#}
+                {#                    </li>#}
+                {#                    <li class="nav-item">#}
+                {#                        <a class="nav-link active" aria-current="page" href="#">Категории</a>#}
+                {#                    </li>#}
+                {#                </ul>#}
+                <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="https://wa.me/996550142000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </li>
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link active" aria-current="page" href="#">О нас</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link active" aria-current="page" href="#">Контакты</a>#}
+{#                    </li>#}
+                </ul>
+                <form class="d-flex" action="/search">
+                    {% if not search_value %}
+                        <input name="search" class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
+                    {% else %}
+                        <input name="search" class="form-control me-2" type="search" placeholder={{ search_value }} aria-label="Search">
+                    {% endif %}
+                    <button class="btn btn-outline-primary" type="submit">Найти</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+{#<div class="container-fluid">#}
+<div class="" style="margin-top: -3px; box-shadow: 0 2px 10px grey;">
+    <img src="{% static '../static/images/temir.jpg' %}" alt="" width="100%" height="auto" />
+
+    {#        <div class="main-image" style="background-image: url('../static/images/temir.jpg'); background-repeat: no-repeat; background-position: center; height: 500px"></div>#}
+</div>
+{#</div>#}
+
+
+<div class="container mt-3 text-center d-block  d-md-flex mb-5">
+    <div class="col-sm-12 col-md-7 ">
+        <iframe id="main-video" src="https://www.youtube.com/embed/OayD__hgRTE" allow="autoplay; encrypted-media" allowfullscreen ></iframe>
+{#        {{ last.link }}#}
+    </div>
+    <div class="col-sm-12 col-md-5 ps-0 ps-md-5 pt-3">
+        <h3 id="main-title">Борись за правду! Вместе с Temirov Live</h3>
+        <p id="main-text">Я, Болот Темиров, представляю вам свой новый авторский проект Temirov Live. Наша команда объявила войну лжи и вседозволенности. Независимые журналисты собрались для проведения расследований. Но только мы все вместе объединившись сможем победить. Мы сможем победить, если каждый из вас расскажет нам о фактах коррупции, с которыми вы столкнулись. Стать движущей силой изменений может каждый! Борись за правду! Вместе с Temirov Live!
+        <br><br>Если у Вас есть информация по фактам коррупции или столкнулись с несправедливостью со стороны властей пишите нам на Whatsapp номер +996 550 142 000</p>
+
+    </div>
+    {#    <div class="d-none d-md-flex col-md-4 ps-5 flex-column justify-content-between">#}
+    {#        <div class="d-flex align-items-center">#}
+    {#            <div class="col-6" style="background-image: url(https://i.ytimg.com/vi/j1rdA-wxSCw/hqdefault.jpg); background-repeat: no-repeat; background-position: center; background-size: cover;  width: 170px; height: 100px;"></div>#}
+    {#            <h3 style="font-size: 14px">В Бишкеке студенты провели митинг с требованием снизить плату за обучение на 30 50%</h3>#}
+    {#        </div>#}
+    {#        <div class="d-flex align-items-center">#}
+    {#            <div class="col-6" style="background-image: url(https://i.ytimg.com/vi/j1rdA-wxSCw/hqdefault.jpg); background-repeat: no-repeat; background-position: center; background-size: cover;  width: 170px; height: 100px;"></div>#}
+    {#            <h3 style="font-size: 14px">В Бишкеке студенты провели митинг с требованием снизить плату за обучение на 30 50%</h3>#}
+    {#        </div>#}
+    {#        <div class="d-flex align-items-center">#}
+    {#            <div class="col-6" style="background-image: url(https://i.ytimg.com/vi/j1rdA-wxSCw/hqdefault.jpg); background-repeat: no-repeat; background-position: center; background-size: cover;  width: 170px; height: 100px;"></div>#}
+    {#            <h3 style="font-size: 14px">В Бишкеке студенты провели митинг с требованием снизить плату за обучение на 30 50%</h3>#}
+    {#        </div>#}
+    {#    </div>#}
+</div>
+<div class="container">
+    <div class="row  row-cols-2 row-cols-md-4 g-4">
+        {% for new in news %}
+            <div class="col">
+                <div class="card h-100 border-0 news-card" id="news-card1">
+                    <div class="card-img-top card-image" newslink = "{{ new.link }}" style="background-image: url(https://i.ytimg.com/vi/{{ new.link }}/hqdefault.jpg);">
+                        <div class="youtube-logo" style=""></div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ new.title }}</h5>
+                        <p class="card-text" hidden='true'>{{ new.text }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+</div><!-- end container -->'
+
+<footer class="footer" style="background-image: url({% static 'images/world-map.png' %}); background-color: #225e7f">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-4 col-xs-12 footer-about-us">
+                <h4>О нас</h4>
+                <p> "Temirov Live" -  ютуб-канал,  рассказывающий в формате блога о политике, недобросовестных политиках и политических манипуляциях. Здесь вы узнаете взвешенную, объективную информацию о проходящих политических процессах и лицах, участвующих в этих процессах.
+Девиз нашего канала - борьба за правду.</p>
+                {#                    <div class="footer-right">#}
+                {#                        <ul class="footer-links-soi">#}
+                {#                            <li><a href="https://m.facebook.com/temirovlive/?tsid=0.705453887935072&source=result"><i class="fa fa-facebook"></i></a></li>#}
+                {#                            <li><a href="https://instagram.com/temirovlive?igshid=hd97pl2yhsek"><i class="fa fa-instagram"></i></a></li>#}
+                {#                            <li><a href="https://twitter.com/vahoel?s=09"><i class="fa fa-twitter"></i></a></li>#}
+                {#                            <li><a href="https://wa.me/996550142000"><i class="fa fa-whatsapp"></i></a></li>#}
+                {#                        </ul><!-- end links -->#}
+                {#                    </div>#}
+            </div><!-- end col -->
+
+
+
+            <div class="col-lg-4 col-md-4 col-xs-12">
+                <div class="widget clearfix">
+                    <div class="widget-title">
+                        <h4 class="contacts">Контакты</h4>
+                    </div>
+
+                    <ul class="footer-links">
+                        <li><a href="mailto:#">www.temirovlife.com</a></li>
+                        <li><a href="#">info@yoursite.com</a></li>
+                        <li>Бишкек шаары Исанов көчөсү</li>
+                        <li>+996777777777</li>
+                        <li>+996555555555</li>
+                    </ul><!-- end links -->
+                </div><!-- end clearfix -->
+            </div><!-- end col -->
+            <div class="col-lg-4 col-md-4 col-xs-12">
+                {#                <div class="widget clearfix">#}
+                <a href="http://jannat.asia/" target="_blank">
+                    <div class="jannat"></div>
+                </a>
+
+                {#                </div><!-- end clearfix -->#}
+            </div><!-- end col -->
+
+        </div><!-- end row -->
+    </div><!-- end container -->
+</footer><!-- end footer -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+{#<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>#}
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>#}
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+{#<script src={% static "/js/popper.min.js"%}></script>#}
+<script src={% static "/js/main.js"%}></script>
+</body>
+</html>
